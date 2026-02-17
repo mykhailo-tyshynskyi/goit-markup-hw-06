@@ -502,13 +502,12 @@ button {
   background-color: #31d0aa;
 }
 
-@media screen and (max-width: 767px) {
-  .footer-logo,
-  .footer-social-media .title,
-  .subscribe-box .title {
-    justify-self: center;
-  }
+.footer-logo,
+.footer-social-media .title,
+.subscribe-box .title {
+  text-align: center;
 }
+
 /* #endregion footer */
 
 /* #region modal overlay */
@@ -1013,9 +1012,6 @@ button {
   .footer-content {
     width: 264px;
   }
-  .subscribe-box {
-    width: 100%;
-  }
 
   .subscribe-items {
     flex-direction: row;
@@ -1025,6 +1021,13 @@ button {
   .subscribe-items input {
     width: 264px;
   }
+
+  .footer-logo,
+  .footer-social-media .title,
+  .subscribe-box .title {
+    text-align: left;
+  }
+
   /* #endregion footer */
 
   /* #region modal overlay */
@@ -1172,7 +1175,7 @@ button {
   .page-footer .container {
     flex-direction: row;
     align-items: baseline;
-    column-gap: 80px;
+    justify-content: space-between;
   }
 
   /* #endregion footer */
