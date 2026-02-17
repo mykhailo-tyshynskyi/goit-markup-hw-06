@@ -59,14 +59,20 @@ button {
   padding: 16px 0;
 }
 
-.logo-accent {
+.accent {
   color: #4d5ae5;
 }
 
 .header-links {
   display: none;
 }
-
+.page-header {
+  border-bottom: 1px solid #e7e9fc;
+  box-shadow:
+    0 1px 6px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16),
+    0 2px 1px 0 rgba(46, 47, 66, 0.08);
+}
 .burger {
   display: flex;
   justify-content: center;
@@ -219,26 +225,19 @@ button {
   width: 100%;
 }
 
-@media screen and (max-width: 1157px) {
-  .features-item .list-item-name {
-    font-weight: 700px;
-    font-size: 36px;
-    line-height: 1.11;
-  }
-
-  .features-item .list-item-descr {
-    font-weight: 500;
-  }
-
-  .features-icon-box {
-    display: none;
-  }
+.features-item .list-item-name {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.11;
+  text-align: center;
 }
 
-@media screen and (max-width: 767px) {
-  .features-item .list-item-name {
-    justify-self: center;
-  }
+.features-item .list-item-descr {
+  font-weight: 500;
+}
+
+.features-icon-box {
+  display: none;
 }
 
 /* #endregion features */
@@ -317,11 +316,6 @@ button {
 
 .portfolio-card {
   width: 100%;
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.portfolio-card:hover,
-.portfolio-card:focus {
   box-shadow:
     0 2px 1px 0 rgba(46, 47, 66, 0.08),
     0 1px 1px 0 rgba(46, 47, 66, 0.16),
@@ -516,6 +510,7 @@ button {
   }
 }
 /* #endregion footer */
+
 /* #region modal overlay */
 .modal-overlay {
   display: flex;
@@ -769,17 +764,24 @@ button {
   width: 100%;
   height: 100%;
   padding: 72px 24px 40px 16px;
-
   position: fixed;
   top: 0;
   left: 100%;
   z-index: 999;
   background-color: #fff;
-  transition: left 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition:
+    left 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .burger-menu-overlay.is-open {
   left: 0;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
 }
 
 .menu-links {
@@ -832,6 +834,11 @@ button {
   color: #434455;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.contact-link.accent {
+  color: #4d5ae5;
+}
+
 .contact-link:hover,
 .contact-link:focus {
   color: #404bbf;
@@ -957,6 +964,9 @@ button {
     width: calc((100% - 24px) / 2);
   }
 
+  .features-item .list-item-name {
+    text-align: left;
+  }
   /* #endregion features */
 
   /* #region team */
@@ -1051,13 +1061,7 @@ button {
   .page-header .container {
     column-gap: 76px;
   }
-  .page-header {
-    border-bottom: 1px solid #e7e9fc;
-    box-shadow:
-      0 1px 6px 0 rgba(46, 47, 66, 0.08),
-      0 1px 1px 0 rgba(46, 47, 66, 0.16),
-      0 2px 1px 0 rgba(46, 47, 66, 0.08);
-  }
+
   .flex-address {
     flex-direction: row;
     column-gap: 40px;
@@ -1108,6 +1112,16 @@ button {
     width: calc((100% - 72px) / 4);
   }
 
+  .features-item .list-item-name {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  .features-item .list-item-descr {
+    font-weight: 400;
+  }
+
   .features-icon-box {
     display: flex;
     justify-content: center;
@@ -1133,12 +1147,23 @@ button {
   .portfolio-card {
     width: calc((100% - 48px) / 3);
     gap: 24px 48px;
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: none;
+  }
+  .portfolio-card:hover,
+  .portfolio-card:focus {
+    box-shadow:
+      0 2px 1px 0 rgba(46, 47, 66, 0.08),
+      0 1px 1px 0 rgba(46, 47, 66, 0.16),
+      0 1px 6px 0 rgba(46, 47, 66, 0.08);
   }
 
   .portfolio-img {
     width: 360px;
   }
+
   /* #endregion portfolio */
+
   /* #region footer */
   .page-footer .container-inner {
     gap: 120px;
